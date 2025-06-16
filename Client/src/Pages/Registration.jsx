@@ -46,7 +46,7 @@ const Registration = ()=>{
         }
 
         const response = await axios.post(api, formdata)
-            window.alert("Student course is insert");
+            window.alert(response.data.msg);
             console.log(response.data);
 
     }
