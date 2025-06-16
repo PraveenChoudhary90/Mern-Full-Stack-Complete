@@ -5,6 +5,7 @@ import Layout from './Layout'
 import Home from './Pages/Home'
 import About from './Pages/About'
 import Registration from './Pages/Registration'
+import Display from './Pages/Display'
 
 function App() {
  
@@ -18,6 +19,7 @@ function App() {
       <Route path='home' element={<Home/>}/>
       <Route path='about' element={<About/>}/>
       <Route path='registration' element={<Registration/>}/>
+      <Route path='display' element={<Display/>}/>
 
       </Route>
      </Routes>

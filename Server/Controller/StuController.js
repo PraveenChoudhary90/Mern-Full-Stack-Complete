@@ -20,8 +20,14 @@ const InsertStudent = async(req,res)=>{
 }
 
 
+const displaydata = async(req,res)=>{
+    const Data = await StuModel.find();
+    res.send(Data);
+}
+
 
 
 module.exports = {
-    InsertStudent
+    InsertStudent,
+    displaydata
 }
