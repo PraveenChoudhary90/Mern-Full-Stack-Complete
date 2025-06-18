@@ -32,7 +32,7 @@ const Display = ()=>{
             <tr>
                 <td>{count}</td>
                 <td>
-                <img src={`${BASE_URL}/${key.defaultImage}`} alt="pic" height="200px" width="200px" />
+                <img src={`${BASE_URL}/${key.defaultImage}`} alt="pic" height="100px" width="100px" />
                  </td>
                 <td>{key.name}</td>
                 <td>{key.email}</td>
