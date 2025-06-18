@@ -29,6 +29,7 @@ const storage = multer.diskStorage({
 
 route.post("/insertstudent",upload.array("image", 10),StuController.InsertStudent);
 route.get("/displaydata", StuController.displaydata);
+route.post("/DeleteData", StuController.DeleteData);
 
 
 

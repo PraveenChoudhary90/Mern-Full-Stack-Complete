@@ -7,10 +7,8 @@ const Display = ()=>{
 
   const [mydata, setMydata] = useState([]);
 
-
   const LoadData= async()=>{
     const api = `${BASE_URL}/student/displaydata`;
-
     const response = await axios.get(api);
         console.log(response.data);
         setMydata(response.data);
@@ -20,6 +18,17 @@ const Display = ()=>{
   useEffect(()=>{
     LoadData()
   },[]);
+
+
+
+
+        const MyDelete = async(id)=>{
+          console.log(id);
+          const api = `${BASE_URL}/student/DeleteData`;
+          const response = await axios.post(api, {id:id})
+          window.alert(response.data.msg);
+        }
+
 
 
 
@@ -37,6 +46,14 @@ const Display = ()=>{
                 <td>{key.name}</td>
                 <td>{key.email}</td>
                 <td>{key.course}</td>
+                <td>
+                  <button onClick={()=>{MyDelete(key._id)}}>
+                  Delete
+                  </button>
+                  </td>
+                <td>
+                  <button>Update</button>
+                </td>
             </tr>
             
             </>
@@ -58,6 +75,8 @@ const Display = ()=>{
           <th> Full Name</th>
           <th>Email</th>
           <th>Course</th>
+          <th>Delete</th>
+          <th>Update</th>
         </tr>
       </thead>
       <tbody>

@@ -26,8 +26,15 @@ const displaydata = async(req,res)=>{
 }
 
 
+const DeleteData = async(req,res)=>{
+    const {id} = req.body;
+    const Data = await StuModel.findByIdAndDelete(id);
+    res.send({msg:"Your Data Is Deleted"})
+}
+
 
 module.exports = {
     InsertStudent,
-    displaydata
+    displaydata,
+    DeleteData
 }
