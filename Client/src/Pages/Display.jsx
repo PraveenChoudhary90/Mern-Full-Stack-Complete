@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import BASE_URL from "../../BaseUrl";
 import axios from "axios";
 import Table from 'react-bootstrap/Table';
+import { useNavigate } from "react-router-dom";
 
 const Display = ()=>{
-
+ const navigate = useNavigate();
   const [mydata, setMydata] = useState([]);
 
   const LoadData= async()=>{
@@ -29,7 +30,10 @@ const Display = ()=>{
           window.alert(response.data.msg);
         }
 
+  const Myupdate = (id)=>{
+    
 
+  }
 
 
    let count = 0;
@@ -52,7 +56,7 @@ const Display = ()=>{
                   </button>
                   </td>
                 <td>
-                  <button>Update</button>
+                  <button onClick={()=>Myupdate(key._id)}>Update</button>
                 </td>
             </tr>
             

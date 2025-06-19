@@ -33,6 +33,7 @@ const DeleteData = async(req,res)=>{
 }
 
 
+
 module.exports = {
     InsertStudent,
     displaydata,
