@@ -3,10 +3,17 @@ import BASE_URL from "../../BaseUrl";
 import axios from "axios";
 import Table from 'react-bootstrap/Table';
 import { useNavigate } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+
 
 const Display = ()=>{
  const navigate = useNavigate();
   const [mydata, setMydata] = useState([]);
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const LoadData= async()=>{
     const api = `${BASE_URL}/student/displaydata`;
@@ -31,6 +38,8 @@ const Display = ()=>{
         }
 
   const Myupdate = (id)=>{
+
+       handleShow(true)
     
 
   }
@@ -56,9 +65,27 @@ const Display = ()=>{
                   </button>
                   </td>
                 <td>
-                  <button onClick={()=>Myupdate(key._id)}>Update</button>
+                  <button onClick={()=>{Myupdate(key._id)}}>Update</button>
                 </td>
             </tr>
+
+
+           
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
             
             </>
         )
