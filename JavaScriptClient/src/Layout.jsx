@@ -1,7 +1,7 @@
 import React from 'react'
 import TopNav from './Component/TopNav'
 import Footer from './Component/Footer'
-import {Outlet} from "react-router-dom"
+import {Outlet} from  "react-router-dom"
 function Layout() {
   return (
     <>
