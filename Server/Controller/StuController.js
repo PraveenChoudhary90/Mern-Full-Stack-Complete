@@ -52,8 +52,9 @@ const UpDateAllData = async(req,res)=>{
 const SearchData = async(req,res)=>{
     const {name, course} = req.body;
     const Data = await StuModel.find({
-        $or:[{name:name, course:course}]
-    })
+        $or:[{name:name },
+            {course:course}],
+    });
     console.log(Data);
     res.send(Data);
 }
