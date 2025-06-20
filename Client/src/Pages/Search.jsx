@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import BASE_URL from '../../BaseUrl';
 import axios from 'axios';
+import Table from 'react-bootstrap/Table';
 const Search = ()=>{
 
  const [name, setName] = useState("");
@@ -20,6 +21,21 @@ const Search = ()=>{
  }
 
 
+
+  const ans = mydata.map((key)=>{
+    return(
+        <>
+        <tr>
+            <td>
+                <img src={`${BASE_URL}/${key.defaultImage}`} alt="" width="100px" height="100px" />
+            </td>
+            <td>{key.name}</td>
+            <td>{key.email}</td>
+            <td>{key.course}</td>
+        </tr>
+        </>
+    )
+  })
 
     return(
         <>
@@ -41,6 +57,24 @@ const Search = ()=>{
       </Button>
     </Form>
     </div>
+        
+      
+      <br size="4" color='black' />
+
+      <Table striped bordered hover>
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Course</th>
+        </tr>
+      </thead>
+      <tbody>
+        {ans}
+        </tbody>
+        </Table>
+
 
         </>
     )
