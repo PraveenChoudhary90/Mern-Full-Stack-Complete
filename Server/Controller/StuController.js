@@ -33,9 +33,27 @@ const DeleteData = async(req,res)=>{
 }
 
 
+const UpdateShowData = async(req,res)=>{
+    const {id} = req.body;
+     try {
+        const Data = await StuModel.findById(id);
+        res.send(Data);
+     } catch (error) {
+        console.log(error);
+     }
+}
+
+const UpDateAllData = async(req,res)=>{
+    const {_id} = req.body;
+    const Data = await StuModel.findByIdAndUpdate(_id, req.body);
+    res.send("okk data ")
+}
+
 
 module.exports = {
     InsertStudent,
     displaydata,
-    DeleteData
+    DeleteData,
+    UpdateShowData,
+    UpDateAllData
 }

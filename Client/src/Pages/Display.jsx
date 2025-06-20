@@ -5,7 +5,7 @@ import Table from 'react-bootstrap/Table';
 import { useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-
+import Form from 'react-bootstrap/Form';
 
 const Display = ()=>{
  const navigate = useNavigate();
@@ -14,6 +14,50 @@ const Display = ()=>{
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+
+
+
+  
+  const [input , setInput] = useState({});
+  
+  
+const HandelInput = (e)=>{
+  const name = e.target.name;
+  const value = e.target.value;
+  setInput(values=>({...values, [name]:value}))
+  console.log(input);
+
+}
+
+
+
+  const Myupdate = async(id)=>{
+         handleShow(true)
+     const  api = `${BASE_URL}/student/UpdateShowData`;
+
+      console.log(id);
+      const response = await axios.post(api, {id:id})
+          console.log(response.data);
+          setInput(response.data);
+
+  }
+
+
+   const Myupdatedata = async(e)=>{
+    e.preventDefault();
+    const api = `${BASE_URL}/student/UpDateAllData`;
+    try {
+      const response = await axios.post(api, input);
+      console.log(response.data);
+      alert("Your data is update");
+    handleClose(false);
+  
+    } catch (error) {
+      console.log(error);
+    }
+
+   }
 
   const LoadData= async()=>{
     const api = `${BASE_URL}/student/displaydata`;
@@ -37,12 +81,7 @@ const Display = ()=>{
           window.alert(response.data.msg);
         }
 
-  const Myupdate = (id)=>{
-
-       handleShow(true)
-    
-
-  }
+  
 
 
    let count = 0;
@@ -74,17 +113,40 @@ const Display = ()=>{
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Update Data</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
+        <Modal.Body>
+             <div id="from">
+                       <Form>
+                 <Form.Group className="mb-3" controlId="formBasicEmails">
+                   <Form.Label>Enter the Name</Form.Label>
+                   <Form.Control type="text" placeholder='Enter your full name' name='name' value={input.name} onChange={HandelInput} />
+                 </Form.Group>
+           
+                 <Form.Group className="mb-3" controlId="formBasicEmaila">
+                   <Form.Label>Enter the Email </Form.Label>
+                   <Form.Control type="text" placeholder='Enter your full email address' name='email' value={input.email} onChange={HandelInput} />
+                 </Form.Group>
+           
+                 <Form.Group className="mb-3" controlId="formBasicPassword">
+                   <Form.Label>Enter the Course Name</Form.Label>
+                   <Form.Control type="text" placeholder='Enter the Course name'  name='course' value={input.course} onChange={HandelInput} />
+                 </Form.Group>
+           
+                 <Form.Group className="mb-3" controlId="formBasicEmailf">
+                   <Form.Label>Enter the Password</Form.Label>
+                   <Form.Control type="password" placeholder='Password'  name='password' value={input.password} onChange={HandelInput} />
+                 </Form.Group>
+           
+                 <Button variant="primary" type="submit" onClick={Myupdatedata}>
+                   Submit
+                 </Button>
+               </Form>
+           
+               </div>
+
+
+        </Modal.Body>
       </Modal>
             
             </>
