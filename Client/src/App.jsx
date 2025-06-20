@@ -6,6 +6,7 @@ import Home from './Pages/Home'
 import About from './Pages/About'
 import Registration from './Pages/Registration'
 import Display from './Pages/Display'
+import Search from './Pages/Search'
 
 function App() {
  
@@ -20,6 +21,7 @@ function App() {
       <Route path='about' element={<About/>}/>
       <Route path='registration' element={<Registration/>}/>
       <Route path='display' element={<Display/>}/>
+      <Route path='search' element={<Search/>}/>
 
       </Route>
      </Routes>

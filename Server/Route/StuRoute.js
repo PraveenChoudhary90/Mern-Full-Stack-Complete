@@ -32,6 +32,7 @@ route.get("/displaydata", StuController.displaydata);
 route.post("/DeleteData", StuController.DeleteData);
 route.post("/UpdateShowData", StuController.UpdateShowData);
 route.post("/UpDateAllData", StuController.UpDateAllData);
+route.post("/SearchData", StuController.SearchData);
 
 
 

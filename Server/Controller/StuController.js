@@ -49,11 +49,21 @@ const UpDateAllData = async(req,res)=>{
     res.send("okk data ")
 }
 
+const SearchData = async(req,res)=>{
+    const {name, course} = req.body;
+    const Data = await StuModel.find({
+        $or:[{name:name, course:course}]
+    })
+    console.log(Data);
+    res.send(Data);
+}
+
 
 module.exports = {
     InsertStudent,
     displaydata,
     DeleteData,
     UpdateShowData,
-    UpDateAllData
+    UpDateAllData,
+    SearchData
 }

@@ -15,6 +15,7 @@ function TopNav() {
             <Nav.Link  as={Link}  to="about">About</Nav.Link>
             <Nav.Link as={Link}   to="registration">Registration</Nav.Link>
             <Nav.Link as={Link}   to="display">Display</Nav.Link>
+            <Nav.Link as={Link}   to="search">Search Student</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
