@@ -5,7 +5,11 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Badge from 'react-bootstrap/Badge';
 import { useNavigate } from 'react-router-dom';
-import { CartContext } from './ContextApi';
+
+
+
+
+
 
 
 function Cart() {
@@ -18,6 +22,7 @@ function Cart() {
   const [currentPage, setCurrentPage] = useState(1);
   const [cart, setCart] = useState([]);
 
+  
 
   const itemsPerPage = 5;
 
@@ -71,11 +76,14 @@ function Cart() {
     }
   };
 
+  
+
   return (
     <>
       <h1>
-        Cart Page <Badge bg="secondary" onClick={()=>{navigate("/cartdata")}}>Cart: {cart.length}</Badge>
+        Cart Page <Badge bg="secondary">Cart: {cart.length}</Badge>
       </h1>
+      
 
       {/* Search */}
       <Form.Control
