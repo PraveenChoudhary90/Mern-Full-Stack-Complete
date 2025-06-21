@@ -5,6 +5,8 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Badge from 'react-bootstrap/Badge';
 import { useNavigate } from 'react-router-dom';
+import { CartContext } from './ContextApi';
+
 
 function Cart() {
     const navigate = useNavigate();
@@ -15,6 +17,7 @@ function Cart() {
   const [sortOrder, setSortOrder] = useState('asc');
   const [currentPage, setCurrentPage] = useState(1);
   const [cart, setCart] = useState([]);
+
 
   const itemsPerPage = 5;
 
