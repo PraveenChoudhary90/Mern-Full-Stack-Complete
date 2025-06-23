@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import BASE_URL from '../config';
+import axios from "axios";
 
 const Insert = ()=>{
      
@@ -21,18 +22,19 @@ const Insert = ()=>{
     }
 
     const HandelSubmit =async (e)=>{
-        e.preventDEfault();
+        e.preventDefault();
+    const api = `${BASE_URL}/product/InsertProduct`;
        
     const formData = new FormData();
+
     for(let key in input){
         formData.append(key, input[key]);
     }
 
     for(let i = 0; i<=image.length;i++){
-        formData.append(image, image[i]);
+        formData.append("image", image[i]);
     }
 
-    const api = `${BASE_URL}/product/InsertProduct`;
 
     const response = await  axios.post(api,formData);
     console.log(response.data);
