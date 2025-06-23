@@ -20,6 +20,13 @@ const InsertProduct = async(req,res)=>{
     }
 }
 
+
+const DisplayProduct = async(req,res)=>{
+    const Data = await ProductModel.find();
+    res.status(200).send(Data);
+}
+
 module.exports = {
-    InsertProduct
+    InsertProduct,
+    DisplayProduct
 }
