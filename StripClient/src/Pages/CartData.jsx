@@ -6,9 +6,10 @@ import { FaMinus } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { Decrement, Increment, RemoveItem } from "../CartSlice";
 import Button from 'react-bootstrap/Button';
+import { useNavigate } from "react-router-dom";
 
 const CartData = ()=>{
-
+     const navigate = useNavigate();
     const Product = useSelector(state=>state.mycart.cart);
      console.log(Product);
 
