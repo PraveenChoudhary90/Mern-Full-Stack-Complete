@@ -8,12 +8,12 @@ const CartSlice = createSlice({
     reducers:{
         AddToCart:(state, actions)=>{
             const CartData = state.cart.filter(key=>key.id==actions.payload.id);
-                if(CartData.length>=1){
-                    window.alert("Product already added")
-                }
-                else{
-                    state.cart.push(actions.payload);
-                }
+            if(CartData.length>=1){
+                alert("Product already added");
+            }
+            else{
+                state.cart.push(actions.payload);
+            }
             
 
         }
