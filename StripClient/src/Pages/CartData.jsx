@@ -5,6 +5,7 @@ import { FaPlus } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { Decrement, Increment, RemoveItem } from "../CartSlice";
+import Button from 'react-bootstrap/Button';
 
 const CartData = ()=>{
 
@@ -41,7 +42,8 @@ const CartData = ()=>{
 
     return(
         <>
-        <h1>Cart Data</h1>
+        <h1 style={{textAlign:'center'}}>Cart Data Pages</h1>
+        <Button variant="warning" style={{margin:'20px', fontSize:"20px", float:'right'}} onClick={()=>{navigate("/checkout")}}>CheckOut</Button>
         <Table striped bordered hover>
       <thead>
         <tr>
